@@ -2071,7 +2071,7 @@
 
             commandsCommand: {
                 command: 'commands',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2471,7 +2471,7 @@
 
             ghostbusterCommand: {
                 command: 'ghostbuster',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2499,7 +2499,7 @@
 
             gifCommand: {
                 command: ['gif', 'giphy'],
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2573,7 +2573,7 @@
 
             helpCommand: {
                 command: 'help',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2614,7 +2614,7 @@
 
             joinCommand: {
                 command: 'join',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2785,7 +2785,7 @@
 
             linkCommand: {
                 command: 'link',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3033,7 +3033,7 @@
 
             motdCommand: {
                 command: 'motd',
-                rank: 'bouncer',
+                rank: 'manager',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3178,7 +3178,7 @@
 
             opCommand: {
                 command: 'op',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3194,7 +3194,7 @@
 
             pingCommand: {
                 command: 'ping',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3461,7 +3461,7 @@
 
             sourceCommand: {
                 command: 'source',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3658,7 +3658,7 @@
 
             thorCommand: {
                 command: 'thor',
-                rank: 'rdj',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
