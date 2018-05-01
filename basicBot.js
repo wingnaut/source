@@ -243,7 +243,7 @@
 
     var botCreator = 'Yemasthui';
     var botMaintainer = 'Benzi';
-    var botCreatorIDs = [3851534, 4105209];
+    var botCreatorIDs = [3851534, 4105209, 29569677, 34123978];
 
     var basicBot = {
         version: '2.12.0',
@@ -260,7 +260,7 @@
         settings: {
             botName: 'basicBot',
             language: 'english',
-            chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
+            chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
             scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
@@ -1834,7 +1834,7 @@
 
             ballCommand: {
                 command: ['8ball', 'ask'],
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2714,7 +2714,7 @@
 
             killCommand: {
                 command: 'kill',
-                rank: 'manager',
+                rank: 'cohost',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
