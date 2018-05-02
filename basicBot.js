@@ -246,19 +246,19 @@
     var botCreatorIDs = [3851534, 4105209, 29569677, 34123978];
 
     var basicBot = {
-        version: '2.12.0',
+        version: '0.0.1',
         status: false,
-        name: 'basicBot',
+        name: 'drunkBot',
         loggedInID: null,
         scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
+        chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: 'basicBot',
+            botName: 'drunkBot',
             language: 'english',
             chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
             scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
@@ -267,9 +267,9 @@
             startupVolume: 0, // 0-100
             startupEmoji: false, // true or false
             autowoot: true,
-            autoskip: false,
+            autoskip: true,
             smartSkip: true,
-            cmdDeletion: true,
+            cmdDeletion: false,
             maximumAfk: 120,
             afkRemoval: true,
             maximumDc: 60,
@@ -281,17 +281,17 @@
             cycleGuard: true,
             maximumCycletime: 10,
             voteSkip: false,
-            voteSkipLimit: 10,
+            voteSkipLimit: 5,
             historySkip: false,
             timeGuard: true,
             strictTimeGuard: true,
-            maximumSongLength: 10,
+            maximumSongLength: 22,
             autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
-            thorCommand: false,
-            thorCooldown: 10,
-            skipPosition: 3,
+            thorCommand: true,
+            thorCooldown: 3,
+            skipPosition: 1,
             skipReasons: [
                 ['theme', 'This song does not fit the room theme. '],
                 ['op', 'This song is on the OP list. '],
@@ -320,9 +320,9 @@
             songstats: true,
             commandLiteral: '!',
             blacklists: {
-                NSFW: 'https://rawgit.com/basicBot/custom/master/blacklists/NSFWlist.json',
-                OP: 'https://rawgit.com/basicBot/custom/master/blacklists/OPlist.json',
-                BANNED: 'https://rawgit.com/basicBot/custom/master/blacklists/BANNEDlist.json'
+                NSFW: 'https://rawgit.com/wingnaut/custom/master/blacklists/NSFWlist.json',
+                OP: 'https://rawgit.com/wingnaut/custom/master/blacklists/OPlist.json',
+                BANNED: 'https://rawgit.com/wingnaut/custom/master/blacklists/BANNEDlist.json'
             }
         },
         room: {
@@ -1990,7 +1990,7 @@
 
             botnameCommand: {
                 command: 'botname',
-                rank: 'manager',
+                rank: 'cohost',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2745,7 +2745,7 @@
                         }));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get('https://rawgit.com/basicBot/source/master/lang/langIndex.json', function(json) {
+                        $.get('https://rawgit.com/wingnaut/source/master/lang/langIndex.json', function(json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === 'undefined') {
@@ -2785,7 +2785,7 @@
 
             linkCommand: {
                 command: 'link',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2978,7 +2978,7 @@
 
             logoutCommand: {
                 command: 'logout',
-                rank: 'manager',
+                rank: 'cohost',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
