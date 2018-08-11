@@ -246,7 +246,7 @@
     var botCreatorIDs = [3851534, 4105209, 29569677, 34123978];
 
     var basicBot = {
-        version: '0.0.1',
+        version: '0.0.5',
         status: false,
         name: 'drunkBot',
         loggedInID: null,
