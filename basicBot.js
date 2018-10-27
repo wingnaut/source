@@ -176,7 +176,6 @@
                 API.chatLog(basicBot.chat.datarestored);
             }
         }
-     /* // UPDATE KILLED ME (8-17-18)
         var json_sett = null;
         var roominfo = document.getElementById('room-settings');
         info = roominfo.textContent;
@@ -197,7 +196,6 @@
                 }
             });
         }
-        */
     };
 
     String.prototype.splitBetween = function(a, b) {
