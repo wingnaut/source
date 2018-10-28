@@ -173,8 +173,7 @@
             }
         }
         var json_sett = null;
-        var roominfo = document.getElementById('room-settings');
-        info = roominfo.textContent;
+        var info = _.find(require.s.contexts._.defined, (m) => m && m.attributes && 'hostID' in m.attributes).get('long_description');
         var ref_bot = '@basicBot=';
         var ind_ref = info.indexOf(ref_bot);
         if (ind_ref > 0) {
@@ -239,16 +238,16 @@
 
     var botCreator = 'Yemasthui';
     var botMaintainer = 'Benzi';
-    var botCreatorIDs = [3851534, 4105209, 29569677, 34123978];
+    var botCreatorIDs = [29569677];
 
     var basicBot = {
-        version: '0.0.5',
+        version: '2.12.2',
         status: false,
-        name: 'drunkBot',
+        name: 'basicBot',
         loggedInID: null,
-        scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
+        scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
+        chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -256,16 +255,16 @@
         settings: {
             botName: 'drunkBot',
             language: 'english',
-            chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
-            scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
+            chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/lang/en.json',
+            scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
             startupEmoji: false, // true or false
             autowoot: true,
-            autoskip: true,
+            autoskip: false,
             smartSkip: true,
-            cmdDeletion: false,
+            cmdDeletion: true,
             maximumAfk: 120,
             afkRemoval: true,
             maximumDc: 60,
@@ -277,11 +276,11 @@
             cycleGuard: true,
             maximumCycletime: 10,
             voteSkip: false,
-            voteSkipLimit: 5,
+            voteSkipLimit: 10,
             historySkip: false,
             timeGuard: true,
             strictTimeGuard: true,
-            maximumSongLength: 22,
+            maximumSongLength: 10,
             autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
@@ -316,9 +315,9 @@
             songstats: true,
             commandLiteral: '!',
             blacklists: {
-                NSFW: 'https://rawgit.com/wingnaut/custom/master/blacklists/NSFWlist.json',
-                OP: 'https://rawgit.com/wingnaut/custom/master/blacklists/OPlist.json',
-                BANNED: 'https://rawgit.com/wingnaut/custom/master/blacklists/BANNEDlist.json'
+                NSFW: 'https://cdn.jsdelivr.net/gh/wingnaut/custom@70f80b0bfda3d6c7987ddadd9ce758546b079021/blacklists/NSFWlist.json',
+                OP: 'https://cdn.jsdelivr.net/gh/wingnaut/custom@70f80b0bfda3d6c7987ddadd9ce758546b079021/blacklists/OPlist.json',
+                BANNED: 'https://cdn.jsdelivr.net/gh/wingnaut/custom@70f80b0bfda3d6c7987ddadd9ce758546b079021/blacklists/BANNEDlist.json'
             }
         },
         room: {
@@ -902,7 +901,7 @@
 
             if (botCreatorIDs.indexOf(user.id) > -1) {
               console.log(true);
-                API.sendChat('@'+user.username+' '+':skull_and_crossbones: :zap: :skull_and_crossbones:');
+                API.sendChat('@'+user.username+' '+':sparkles: :bow: :sparkles:');
             } else if (basicBot.settings.welcome && greet) {
               console.log(false);
               console.log(botCreatorIDs);
@@ -1829,7 +1828,7 @@
 
             ballCommand: {
                 command: ['8ball', 'ask'],
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -1985,7 +1984,7 @@
 
             botnameCommand: {
                 command: 'botname',
-                rank: 'cohost',
+                rank: 'host',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2066,7 +2065,7 @@
 
             commandsCommand: {
                 command: 'commands',
-                rank: 'residentdj',
+                rank: 'bouncer',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2463,7 +2462,7 @@
 
             ghostbusterCommand: {
                 command: 'ghostbuster',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2491,7 +2490,7 @@
 
             gifCommand: {
                 command: ['gif', 'giphy'],
-                rank: 'residentdj',
+                rank: 'mod',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2512,8 +2511,8 @@
                                     }
                                 )
                             }
-                            var api_key = 'dc6zaTOxFJmzC'; // public beta key
-                            var rating = 'pg-13'; // PG 13 gifs
+                            var api_key = 'AIzaSyCswwduFy4Sj99y2JQdjy1tsJO2CxvRr8E'; // personal key
+                            var rating = 'R'; // R gifs
                             var tag = msg.substr(cmd.length + 1);
                             var fixedtag = tag.replace(/ /g, '+');
                             var commatag = tag.replace(/ /g, ', ');
@@ -2544,8 +2543,8 @@
                                     }
                                 )
                             }
-                            var api_key = 'dc6zaTOxFJmzC'; // public beta key
-                            var rating = 'pg-13'; // PG 13 gifs
+                            var api_key = 'AIzaSyCswwduFy4Sj99y2JQdjy1tsJO2CxvRr8E'; // personal key
+                            var rating = 'R'; // R gifs
                             get_random_id(api_key, function(id) {
                                 if (typeof id !== 'undefined') {
                                     API.sendChat(subChat(basicBot.chat.validgifrandom, {
@@ -2565,7 +2564,7 @@
 
             helpCommand: {
                 command: 'help',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2606,7 +2605,7 @@
 
             joinCommand: {
                 command: 'join',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2706,7 +2705,7 @@
 
             killCommand: {
                 command: 'kill',
-                rank: 'cohost',
+                rank: 'bouncer',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2970,7 +2969,7 @@
 
             logoutCommand: {
                 command: 'logout',
-                rank: 'cohost',
+                rank: 'manager',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3025,7 +3024,7 @@
 
             motdCommand: {
                 command: 'motd',
-                rank: 'manager',
+                rank: 'bouncer',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3170,7 +3169,7 @@
 
             opCommand: {
                 command: 'op',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3186,7 +3185,7 @@
 
             pingCommand: {
                 command: 'ping',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3218,7 +3217,7 @@
 
             reloadCommand: {
                 command: 'reload',
-                rank: 'manager',
+                rank: 'bouncer',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3451,9 +3450,9 @@
                 }
             },
 
-            sourceCommand: {
+            //sourceCommand: {
                 command: 'source',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3462,7 +3461,7 @@
                         API.sendChat('/me basicBot is an open-source bot for plug.dj. More info can be found here: https://github.com/basicBot/source');
                     }
                 }
-            },
+            //},
 
             statusCommand: {
                 command: 'status',
@@ -3650,7 +3649,7 @@
 
             thorCommand: {
                 command: 'thor',
-                rank: 'residentdj',
+                rank: 'user',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
