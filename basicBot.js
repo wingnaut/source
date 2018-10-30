@@ -245,13 +245,13 @@
     var botCreatorIDs = [3851534, 4105209, 29569677];
 
     var basicBot = {
-        version: '2.12.2',
+        version: '4.20',
         status: false,
         name: 'basicBot',
         loggedInID: null,
-        scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
+        scriptLink: 'https://rawgit.com/basicBot/source/master/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
+        chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -259,8 +259,8 @@
         settings: {
             botName: 'basicBot',
             language: 'english',
-            chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
-            scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
+            chatLink: 'https://rawgit.com/basicBot/source/master/lang/en.json',
+            scriptLink: 'https://rawgit.com/basicBot/source/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
