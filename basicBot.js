@@ -1,7 +1,10 @@
 /**
+
  Copyright © 2014-2018 basicBot
+
  Modifications (including forks) of the code to fit personal needs are allowed only for personal use and should refer back to the original source.
  This software is not for profit, any extension, or unauthorised person providing this software is not authorised to be in a position of any monetary gain from this use of this software. Any and all money gained under the use of the software (which includes donations) must be passed on to the original author.
+
  */
 
 (function() {
@@ -61,6 +64,7 @@
             $.getScript('https://cdn.jsdelivr.net/sockjs/1.0.3/sockjs.min.js', loadSocket);
         } else loadSocket();
     }
+
     var sendToSocket = function() {
         var basicBotSettings = basicBot.settings;
         var basicBotRoom = basicBot.room;
@@ -238,25 +242,25 @@
 
     var botCreator = 'Yemasthui';
     var botMaintainer = 'Benzi';
-    var botCreatorIDs = [29569677];
+    var botCreatorIDs = [3851534, 4105209, 29569677];
 
     var basicBot = {
         version: '2.12.2',
         status: false,
         name: 'basicBot',
         loggedInID: null,
-        scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/basicBot.js',
+        scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/lang/en.json',
+        chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
         retrieveFromStorage: retrieveFromStorage,
         settings: {
-            botName: 'drunkBot',
+            botName: 'basicBot',
             language: 'english',
-            chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/lang/en.json',
-            scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@01af1856e920c877861153644459737c64fbce97/basicBot.js',
+            chatLink: 'https://rawgit.com/wingnaut/source/master/lang/en.json',
+            scriptLink: 'https://rawgit.com/wingnaut/source/master/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
@@ -284,9 +288,9 @@
             autodisable: false,
             commandCooldown: 30,
             usercommandsEnabled: true,
-            thorCommand: true,
-            thorCooldown: 3,
-            skipPosition: 1,
+            thorCommand: false,
+            thorCooldown: 10,
+            skipPosition: 3,
             skipReasons: [
                 ['theme', 'This song does not fit the room theme. '],
                 ['op', 'This song is on the OP list. '],
@@ -315,9 +319,9 @@
             songstats: true,
             commandLiteral: '!',
             blacklists: {
-                NSFW: 'https://cdn.jsdelivr.net/gh/wingnaut/custom@70f80b0bfda3d6c7987ddadd9ce758546b079021/blacklists/NSFWlist.json',
-                OP: 'https://cdn.jsdelivr.net/gh/wingnaut/custom@70f80b0bfda3d6c7987ddadd9ce758546b079021/blacklists/OPlist.json',
-                BANNED: 'https://cdn.jsdelivr.net/gh/wingnaut/custom@70f80b0bfda3d6c7987ddadd9ce758546b079021/blacklists/BANNEDlist.json'
+                NSFW: 'https://rawgit.com/wingnaut/custom/master/blacklists/NSFWlist.json',
+                OP: 'https://rawgit.com/wingnaut/custom/master/blacklists/OPlist.json',
+                BANNED: 'https://rawgit.com/wingnaut/custom/master/blacklists/BANNEDlist.json'
             }
         },
         room: {
@@ -901,7 +905,7 @@
 
             if (botCreatorIDs.indexOf(user.id) > -1) {
               console.log(true);
-                API.sendChat('@'+user.username+' '+':sparkles: :bow: :sparkles:');
+                API.sendChat('@'+user.username+' '+':skull_and_crossbones: :zap: :skull_and_crossbones:');
             } else if (basicBot.settings.welcome && greet) {
               console.log(false);
               console.log(botCreatorIDs);
@@ -1554,6 +1558,7 @@
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
                     if (!basicBot.commands.executable(this.rank, chat)) return void(0);
                     else {
+
                     }
                 }
             },
@@ -2007,7 +2012,7 @@
 
             clearchatCommand: {
                 command: 'clearchat',
-                rank: 'manager',
+                rank: 'cohost',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2065,7 +2070,7 @@
 
             commandsCommand: {
                 command: 'commands',
-                rank: 'bouncer',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2233,15 +2238,18 @@
                         for (var i = 0; i < chats.length; i++) {
                             var n = from[i].textContent;
                             if (name.trim() === n.trim()) {
+
                                 // var messagecid = $(message)[i].getAttribute('data-cid');
                                 // var emotecid = $(emote)[i].getAttribute('data-cid');
                                 // API.moderateDeleteChat(messagecid);
+
                                 // try {
                                 //     API.moderateDeleteChat(messagecid);
                                 // }
                                 // finally {
                                 //     API.moderateDeleteChat(emotecid);
                                 // }
+
                                 if (typeof $(message)[i].getAttribute('data-cid') == 'undefined'){
                                     API.moderateDeleteChat($(emote)[i].getAttribute('data-cid')); // works well with normal messages but not with emotes due to emotes and messages are seperate.
                                 } else {
@@ -2490,7 +2498,7 @@
 
             gifCommand: {
                 command: ['gif', 'giphy'],
-                rank: 'mod',
+                rank: 'user',
                 type: 'startsWith',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2511,8 +2519,8 @@
                                     }
                                 )
                             }
-                            var api_key = 'AIzaSyCswwduFy4Sj99y2JQdjy1tsJO2CxvRr8E'; // personal key
-                            var rating = 'R'; // R gifs
+                            var api_key = 'dc6zaTOxFJmzC'; // public beta key
+                            var rating = 'r'; // R gifs
                             var tag = msg.substr(cmd.length + 1);
                             var fixedtag = tag.replace(/ /g, '+');
                             var commatag = tag.replace(/ /g, ', ');
@@ -2543,8 +2551,8 @@
                                     }
                                 )
                             }
-                            var api_key = 'AIzaSyCswwduFy4Sj99y2JQdjy1tsJO2CxvRr8E'; // personal key
-                            var rating = 'R'; // R gifs
+                            var api_key = 'dc6zaTOxFJmzC'; // public beta key
+                            var rating = 'pg-13'; // PG 13 gifs
                             get_random_id(api_key, function(id) {
                                 if (typeof id !== 'undefined') {
                                     API.sendChat(subChat(basicBot.chat.validgifrandom, {
@@ -2705,7 +2713,7 @@
 
             killCommand: {
                 command: 'kill',
-                rank: 'bouncer',
+                rank: 'manager',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -2736,7 +2744,7 @@
                         }));
                         var argument = msg.substring(cmd.length + 1);
 
-                        $.get('https://rawgit.com/wingnaut/source/master/lang/langIndex.json', function(json) {
+                        $.get('https://rawgit.com/basicBot/source/master/lang/langIndex.json', function(json) {
                             var langIndex = json;
                             var link = langIndex[argument.toLowerCase()];
                             if (typeof link === 'undefined') {
@@ -3450,9 +3458,9 @@
                 }
             },
 
-            //sourceCommand: {
+            sourceCommand: {
                 command: 'source',
-                rank: 'user',
+                rank: 'mod',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
@@ -3461,7 +3469,7 @@
                         API.sendChat('/me basicBot is an open-source bot for plug.dj. More info can be found here: https://github.com/basicBot/source');
                     }
                 }
-            //},
+            },
 
             statusCommand: {
                 command: 'status',
@@ -3649,7 +3657,7 @@
 
             thorCommand: {
                 command: 'thor',
-                rank: 'user',
+                rank: 'residentdj',
                 type: 'exact',
                 functionality: function(chat, cmd) {
                     if (this.type === 'exact' && chat.message.length !== cmd.length) return void(0);
