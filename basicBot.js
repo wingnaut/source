@@ -112,7 +112,7 @@
 
     var loadChat = function(cb) {
         if (!cb) cb = function() {};
-        $.get('https://cdn.jsdelivr.net/gh/wingnaut/source@2256050372a5421de155495f11b5a90d319ee28a/lang/en.json', function(json) {
+        $.get('https://cdn.jsdelivr.net/gh/wingnaut/source@622de8d83b848280cbee6145030d6c2470713bb1/lang/langIndex.json', function(json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== 'undefined') {
                 langIndex = json;
@@ -249,9 +249,9 @@
         status: false,
         name: 'basicBot',
         loggedInID: null,
-        scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@32c8be2b1bddbda7049d53464a657c818e1012c0/basicBot.js',
+        scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@622de8d83b848280cbee6145030d6c2470713bb1/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
-        chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@32c8be2b1bddbda7049d53464a657c818e1012c0/lang/en.json',
+        chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@622de8d83b848280cbee6145030d6c2470713bb1/lang/en.json',
         chat: null,
         loadChat: loadChat,
         retrieveSettings: retrieveSettings,
@@ -259,8 +259,8 @@
         settings: {
             botName: 'basicBot',
             language: 'english',
-            chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@32c8be2b1bddbda7049d53464a657c818e1012c0/lang/en.json',
-            scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@32c8be2b1bddbda7049d53464a657c818e1012c0/basicBot.js',
+            chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@622de8d83b848280cbee6145030d6c2470713bb1/lang/en.json',
+            scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@622de8d83b848280cbee6145030d6c2470713bb1/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
