@@ -112,7 +112,7 @@
 
     var loadChat = function(cb) {
         if (!cb) cb = function() {};
-        $.get('https://cdn.jsdelivr.net/gh/basicBot/source@ce49cf900fcffa08a6b7ab99e285556eadf91a6e/lang/langIndex.json', function(json) {
+        $.get('https://cdn.jsdelivr.net/gh/wingnaut/source@2256050372a5421de155495f11b5a90d319ee28a/lang/en.json', function(json) {
             var link = basicBot.chatLink;
             if (json !== null && typeof json !== 'undefined') {
                 langIndex = json;
