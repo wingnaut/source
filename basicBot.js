@@ -249,7 +249,7 @@
         status: false,
         name: 'basicBot',
         loggedInID: null,
-        scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@1a7eb38efacc9a8a7a84139b70d57cb504907a01/basicBot.js',
+        scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@348482bcc82d17f4325135a1a8d693ce97f2df15/basicBot.js',
         cmdLink: 'http://git.io/245Ppg',
         chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@ae1b2e23a8150bdcb72e5d2e5699f15569a040a5/lang/en.json',
         chat: null,
@@ -260,7 +260,7 @@
             botName: 'basicBot',
             language: 'english',
             chatLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@ae1b2e23a8150bdcb72e5d2e5699f15569a040a5/lang/en.json',
-            scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@1a7eb38efacc9a8a7a84139b70d57cb504907a01/basicBot.js',
+            scriptLink: 'https://cdn.jsdelivr.net/gh/wingnaut/source@348482bcc82d17f4325135a1a8d693ce97f2df15/basicBot.js',
             roomLock: false, // Requires an extension to re-load the script
             startupCap: 1, // 1-200
             startupVolume: 0, // 0-100
